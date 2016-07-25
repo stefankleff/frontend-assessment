@@ -1,0 +1,15 @@
+.row {
+    max-width: 1200px;
+}
+
+.column {
+    float: left;
+}
+
+.column#left {
+    width: 30%;
+}
+
+.column#right {
+    width: 70%;
+}

@@ -1,0 +1,27 @@
+# IDEs
+/.idea
+/.project
+/nbproject
+/.buildpath
+/.settings
+*.sublime-*
+*.AppleDouble
+*.AppleDB
+*.AppleDesktop
+Temporary Items
+.apdisk
+GPATH
+GRTAGS
+GTAGS
+
+# OS
+.DS_Store
+
+# node stuff
+/node_modules/
+
+# public stuff
+public/
+
+# logs
+npm-debug.log
