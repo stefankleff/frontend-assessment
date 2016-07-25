@@ -5,6 +5,11 @@ const TREE_OBJECT = {
         description: 'This is a decent tree.'
     },
 
+    wrongTree: {
+        height: 8,
+        description: 'This is a wrong tree.'
+    },
+
     highTree: {
         height: 7,
         char: '#',
@@ -26,17 +31,17 @@ const TREE_ARRAY = [
         description: 'This is a decent tree.'
     },
     {
+        name: 'dollarTree',
+        height: 6,
+        char: '$',
+        description: 'This is the most expensive tree'
+    },
+    {
         name: 'highTree',
         height: 7,
         char: '#',
         description: 'This is the mightiest tree.'
     },
-    {
-        name: 'dollarTree',
-        height: 6,
-        char: '$',
-        description: 'This is the most expensive tree'
-    }
 ];
 
 
@@ -46,8 +51,9 @@ function getTreeObject () {
 }
 
 function transformTreeObject (treeObject) {
-
     // TODO: implement transformation: object -> array
+    // TODO: filter trees without char property
+    // TODO: sort trees by height (desc)
 
     return TREE_ARRAY;
 }

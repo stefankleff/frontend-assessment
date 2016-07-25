@@ -1,24 +1,26 @@
-import { getTreeObject, transformTreeObject } from './modules/tree-data';
-import { drawTree } from './modules/tree-drawing';
+import { getTreeObject, transformTreeObject } from './tree-data';
+import { drawTree } from './tree-drawing';
 
 'use strict';
 
 
-// TODO: edit template
+// TODO: edit template to match CSS
 const TEMPLATE = (tree, data) => {
     return `
         <div class="card">
-            <div id="tree">
-                ${tree}
-            </div>
+            <div>
+                <div id="tree">
+                    ${tree}
+                </div>
 
-            <div class="info">
-                <h2>
-                    ${data.title}
-                </h2>
+                <div class="info">
+                    <h2>
+                        ${data.name}
+                    </h2>
 
-                <div>
-                    ${data.description}
+                    <div>
+                        ${data.description}
+                    </div>
                 </div>
             </div>
         </div>
@@ -36,9 +38,9 @@ function renderCards () {
     const treeObject = getTreeObject();
     const treeArray = transformTreeObject(treeObject);
 
-    treeArray.map(renderCard);
+    const cards = treeArray.map(renderCard);
 
-    return tree.join('');
+    return cards.join('');
 }
 
 

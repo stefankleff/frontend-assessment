@@ -2,12 +2,12 @@
 
 
 const STAR_TREE = `
-        *
-       ***
-      *****
-     *******
-    *********
-       | |
+    *
+   ***
+  *****
+ *******
+*********
+   | |
 `;
 
 const HIGH_TREE = `
@@ -28,22 +28,28 @@ const DOLLAR_TREE = `
      $$$$$$$
     $$$$$$$$$
    $$$$$$$$$$$
-  $$$$$$$$$$$$$
        | |
 `;
 
 
+function replaceChars (template) {
+    return template
+        .replace(/\n/g, '<br>')
+        .replace(/\s/g, '&nbsp;');
+}
+
+
 // TODO: implement generic solution
-function drawTree (height, char) {
+function drawTree ({ height, char }) {
 
     if (height == 5 && char == '*') {
-        return STAR_TREE;
+        return replaceChars(STAR_TREE);
 
     } else if (height == 7 && char == '#') {
-        return HIGH_TREE;
+        return replaceChars(HIGH_TREE);
 
     } else if (height == 6 && char == '$') {
-        return DOLLAR_TREE;
+        return replaceChars(DOLLAR_TREE);
     }
 
 }

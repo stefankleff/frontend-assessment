@@ -1,5 +1,14 @@
+body {
+    * {
+        box-sizing: border-box;
+    }
+}
+
 .row {
+    margin: 0 auto;
+    padding: 0 10px;
     max-width: 1200px;
+    overflow: hidden;
 }
 
 .column {
@@ -8,8 +17,10 @@
 
 .column#left {
     width: 30%;
+    padding: 20px;
 }
 
 .column#right {
     width: 70%;
+    padding: 10px;
 }

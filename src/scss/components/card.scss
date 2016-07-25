@@ -1,0 +1,11 @@
+.card {
+    float: left;
+    width: 33.333%;
+    padding: 10px;
+
+    & > div {
+        padding: 10px;
+        background: #FFF;
+        box-shadow: 0 0 5px 0 rgba(0,0,0,0.2);
+    }
+}
