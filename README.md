@@ -7,16 +7,14 @@ For our aspiring ecommerce venture __treerific__ we need to provide a catalog pa
 
 The treerific frontend dev created a prototype in great haste just before his parental leave started. The product manager was satisfied, but after a technical review we came to the conclusion that there are some issues that need to be resolved before we can launch. - So we need your help!
 
+### Setup
+1. clone this repository and create a feature branch
+2. run `npm install` and `npm start dev` - [localhost](http://localhost:3000) should open automatically
+3. jQuery is already available - feel free to add any library you want to use.
+
 
 ## Tasks:
 Please read the entire task requirements (including the hints section) before you start.
-
-
-### Setup
-* run `npm install` and `npm start dev`
-* see [localhost](localhost:3000) for the current state
-* jQuery is already available - feel free to add any library you need.
-
 
 ### 1. Tree drawing
 Because of missing requirements the drawing function was created in a pretty static way. If new tree types are added to the product range that will not work at all.
@@ -38,7 +36,7 @@ _Please update Markup (inside cards.js) and CSS (card.scss) according to the new
 
 ## Hints
 
-You have 60 minutes to complete the task above. Feel free to improve any code that you don't like. Please commit your solution to a feature branch and create a pull request once you are done. And don't worry if you can't complete everything in time.
+You have 60 minutes to complete the tasks above. Feel free to improve any code that you don't like. Please create a pull request once you are done.
 
 
 ## License
