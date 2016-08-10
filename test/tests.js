@@ -1,2 +1,2 @@
-import 'steal-jasmine';
-import './thing';
+import './cards.test';
+import './tree-data.test';

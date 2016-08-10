@@ -1,12 +1,16 @@
 import $ from 'jquery';
-
-import { renderCards } from './modules/cards';
+import {getTreeObject, transformTreeObject} from './modules/tree-data';
+import {renderCards} from './modules/cards';
 
 'use strict';
 
 /**
  * @description main entry point
  */
-$(() =>
-	$('#right').html(renderCards())
+$(() => {
+		const treeObject = getTreeObject();
+		const treeArray = transformTreeObject(treeObject);
+
+		$('#right').html(renderCards(treeArray))
+	}
 );
