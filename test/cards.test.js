@@ -12,9 +12,12 @@ test('Render Cards', (assert) => {
 	const actualTrees = $('.tree').length;
 	const actualRows = $('.tree-row').length;
 
-	assert.equal(expectedCards, actualCards);
-	assert.equal(expectedTrees, actualTrees);
-	assert.equal(expectedRows, actualRows);
+	assert.equal(expectedCards, actualCards,
+		'there should be one card');
+	assert.equal(expectedTrees, actualTrees,
+		'there should be one tree');
+	assert.equal(expectedRows, actualRows,
+		'the tree should have five rows');
 
 	assert.end();
 });
