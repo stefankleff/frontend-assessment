@@ -1,12 +1,19 @@
-import { getTreeObject, transformTreeObject } from './tree-data';
-import { drawTree } from './tree-drawing';
+import {getTreeObject, transformTreeObject} from './tree-data';
+import {drawTree} from './tree-drawing';
 
 'use strict';
 
 
 // TODO: edit template to match CSS
+/**
+ * @description A template used for generating tree structures
+ * @param tree
+ * @param data
+ * @returns {string}
+ * @constructor
+ */
 const TEMPLATE = (tree, data) => {
-    return `
+	return `
         <div class="card">
             <div>
                 <div class="tree">
@@ -27,21 +34,29 @@ const TEMPLATE = (tree, data) => {
     `;
 };
 
+/**
+ * @description Renders a tree card
+ * @param treeData
+ * @returns {string}
+ */
+function renderCard(treeData) {
+	const tree = drawTree(treeData);
 
-function renderCard (treeData) {
-    const tree = drawTree(treeData);
-
-    return TEMPLATE(tree, treeData);
+	return TEMPLATE(tree, treeData);
 }
 
-function renderCards () {
-    const treeObject = getTreeObject();
-    const treeArray = transformTreeObject(treeObject);
+/**
+ * @description Renders all the tree cards in the catalogue
+ * @returns {string}
+ */
+function renderCards() {
+	const treeObject = getTreeObject();
+	const treeArray = transformTreeObject(treeObject);
 
-    const cards = treeArray.map(renderCard);
-
-    return cards.join('');
+	return treeArray
+		.map(renderCard)
+		.join('');
 }
 
 
-export { renderCards };
+export {renderCards};

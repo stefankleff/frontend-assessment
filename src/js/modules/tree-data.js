@@ -23,10 +23,20 @@ const TREE_OBJECT = {
 	}
 };
 
+/**
+ * @description returns the tree object
+ * @returns {{starTree: {height: number, char: string, description: string}, wrongTree: {height: number, description: string}, highTree: {height: number, char: string, description: string}, dollarTree: {height: number, char: string, description: string}}}
+ */
 function getTreeObject() {
 	return TREE_OBJECT;
 }
 
+/**
+ * @description Sorts trees by height in descending order
+ * @param a
+ * @param b
+ * @returns {number}
+ */
 function sortTreesByHeightDesc(a,b) {
 	if(a.height < b.height) {
 		return 1;
@@ -56,8 +66,8 @@ function transformTreeObject(treeObject) {
 	}
 
 	return trees
-		.sort(sortTreesByHeightDesc)
-		.filter((tree) => tree.hasOwnProperty('char'));
+		.filter((tree) => tree.hasOwnProperty('char'))
+		.sort(sortTreesByHeightDesc);
 
 }
 
