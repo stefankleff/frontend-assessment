@@ -14,6 +14,7 @@ const source = require('vinyl-source-stream');
 const buffer = require('vinyl-buffer');
 const browserSync = require('browser-sync').create();
 const reload = browserSync.reload;
+const sourcemaps = require('gulp-sourcemaps');
 
 
 gulp.task('dev', ['styles:dev', 'scripts:dev', 'copy:dev', 'browser-sync']);
@@ -38,17 +39,17 @@ gulp.task('browser-sync', function() {
 gulp.task('copy:dev', ['copy:watch', 'copy']);
 
 gulp.task('copy:watch', function (cb) {
-    console.log('watch')
+    console.log('watch');
     return gulp.watch(['./src/index.html'], ['copy']);
 });
 
 gulp.task('copy', function (cb) {
     return gulp.src('./src/index.html')
-        .pipe(gulp.dest('./public'))
-        .pipe(notify({
-            message: 'Task "copy" completed',
-            onLast: true
-        }));
+        .pipe(gulp.dest('./public'));
+        // .pipe(notify({
+        //     message: 'Task "copy" completed',
+        //     onLast: true
+        // }));
 });
 
 
@@ -67,8 +68,8 @@ gulp.task('styles', function() {
         .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
         .pipe(sass({includePaths: ['./src/scss']}))
         .pipe(prefix(['last 2 versions', 'Android > 4']))
-        .pipe(gulp.dest('./public/css'))
-        .pipe(notify('Task "styles" completed'));
+        .pipe(gulp.dest('./public/css'));
+        // .pipe(notify('Task "styles" completed'));
 });
 
 
@@ -102,6 +103,7 @@ function bundle_js(bundler) {
         .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
         .pipe(source('main.js'))
         .pipe(buffer())
-        .pipe(gulp.dest('./public/js'))
-        .pipe(notify('Task "scripts" completed'));
+        .pipe(sourcemaps.init({loadMaps: true}))
+        .pipe(gulp.dest('./public/js'));
+        // .pipe(notify('Task "scripts" completed'));
 }

@@ -1,58 +1,27 @@
 'use strict';
 
-
-const STAR_TREE = `
-    *
-   ***
-  *****
- *******
-*********
-   | |
-`;
-
-const HIGH_TREE = `
-        #
-       ###
-      #####
-     #######
-    #########
-   ###########
-  #############
-       | |
-`;
-
-const DOLLAR_TREE = `
-        $
-       $$$
-      $$$$$
-     $$$$$$$
-    $$$$$$$$$
-   $$$$$$$$$$$
-       | |
-`;
-
-
-function replaceChars (template) {
-    return template
-        .replace(/\n/g, '<br>')
-        .replace(/\s/g, '&nbsp;');
-}
-
-
 // TODO: implement generic solution
-function drawTree ({ height, char }) {
+function drawTree({height, char}) {
 
-    if (height == 5 && char == '*') {
-        return replaceChars(STAR_TREE);
+	// Take the height, and calc the width
+	// For each row, calc the number of chars before
+	// We have to write a tree val
+	let width = height * 2;
+	let tree = '';
+	const space = ' ';
 
-    } else if (height == 7 && char == '#') {
-        return replaceChars(HIGH_TREE);
+	for (let row = 0; row < width; row++) {
+        for(let index = 0; index < row; index++) {
+        	tree += char;
+		}
+		tree += '<br>';
+	}
 
-    } else if (height == 6 && char == '$') {
-        return replaceChars(DOLLAR_TREE);
-    }
+	// Add the roots of the tree
+
+	return tree;
 
 }
 
 
-export { drawTree };
+export {drawTree};
