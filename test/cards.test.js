@@ -1,6 +1,6 @@
 import test from 'tape';
 import {renderCards} from '../src/js/modules/cards';
-import {treeArray} from './test.data';
+import {treeArray} from './data/test.data';
 import dom from 'cheerio';
 
 test('Render Cards', (assert) => {

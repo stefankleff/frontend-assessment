@@ -1,7 +1,7 @@
 import test from 'tape';
 import {transformTreeObject} from '../src/js/modules/tree-data';
 import {getTreeObject} from '../src/js/modules/tree-data';
-import {treeObject as tree, treeArray} from './test.data';
+import {treeObject as tree, treeArray} from './data/test.data';
 
 test('Transform a Tree Object', (assert) => {
 
