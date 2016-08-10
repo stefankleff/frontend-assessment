@@ -9,6 +9,16 @@
         box-shadow: 0 0 5px 0 rgba(0,0,0,0.2);
         height: 100%;
     }
+
+    .tree {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+
+        .tree-row {
+            display: inline-block;
+        }
+    }
     
     .info {
         position: absolute;

@@ -1,5 +1,7 @@
 'use strict';
 
+const renderTreeData = (treeData) => `<div class="tree-row">${treeData}</div>`;
+
 /**
  * @description Draws an ascii tree when given a height and a char
  * @param height
@@ -9,30 +11,21 @@
 function drawTree({height, char}) {
 
 	let tree = '';
-	const space = '&nbsp;';
-	let spaceCount = height;
+	let treeData = '';
 	let charCount = 1;
 
 	for (let row = 0; row < height; row++) {
-		spaceCount--;
-
-		for (let n = 0; n < spaceCount; n++) {
-			tree += space;
-		}
 
 		for (let index = 0; index < charCount; index++) {
-			tree += char;
+			treeData += char;
 		}
 
-		tree += '<br>';
+		tree += renderTreeData(treeData);
 		charCount += 2;
+		treeData = '';
 	}
 
-	spaceCount = Math.floor(charCount / 2);
-	for (let row = 0; row < spaceCount; row++) {
-		tree += space;
-	}
-	tree += '| |';
+	tree += '<div class="trunk">| |</div>';
 
 	return tree;
 
