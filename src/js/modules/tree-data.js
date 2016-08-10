@@ -23,39 +23,52 @@ const TREE_OBJECT = {
     }
 };
 
-const TREE_ARRAY = [
-    {
-        name: 'starTree',
-        height: 5,
-        char: '*',
-        description: 'This is a decent tree.'
-    },
-    {
-        name: 'dollarTree',
-        height: 6,
-        char: '$',
-        description: 'This is the most expensive tree'
-    },
-    {
-        name: 'highTree',
-        height: 7,
-        char: '#',
-        description: 'This is the mightiest tree.'
-    },
-];
-
-
-
-function getTreeObject () {
+/**
+ * @description returns the tree object
+ * @returns {{starTree: {height: number, char: string, description: string}, wrongTree: {height: number, description: string}, highTree: {height: number, char: string, description: string}, dollarTree: {height: number, char: string, description: string}}}
+ */
+function getTreeObject() {
     return TREE_OBJECT;
 }
 
-function transformTreeObject (treeObject) {
-    // TODO: implement transformation: object -> array
-    // TODO: filter trees without char property
-    // TODO: sort trees by height (desc)
-
-    return TREE_ARRAY;
+/**
+ * @description Sorts trees by height in descending order
+ * @param a
+ * @param b
+ * @returns {number}
+ */
+function sortTreesByHeightDesc(a, b) {
+    if (a.height < b.height) {
+        return 1;
+    }
+    if (a.height > b.height) {
+        return -1;
+    }
+    return 0;
 }
 
-export { getTreeObject, transformTreeObject };
+/**
+ * @description filter trees without char prop. sort trees by height (desc)
+ * @param treeObject
+ * @returns {Array.<*>}
+ */
+function transformTreeObject(treeObject) {
+    let trees = [];
+    let currentTree = {};
+
+    for (let tree in treeObject) {
+        if ({}.hasOwnProperty.call(treeObject, tree)) {
+            currentTree = treeObject[tree];
+            currentTree.name = tree;
+            trees.push(currentTree);
+        }
+    }
+
+    return trees
+        .filter(tree => {
+            return {}.hasOwnProperty.call(tree, 'char');
+        })
+        .sort(sortTreesByHeightDesc);
+}
+
+export {getTreeObject, transformTreeObject};

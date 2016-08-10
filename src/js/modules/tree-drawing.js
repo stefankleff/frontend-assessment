@@ -1,58 +1,23 @@
-'use strict';
+const renderTreeData = treeData => `<div class="tree-row">${treeData}</div>`;
 
+/**
+ * @description Draws an ascii tree when given a height and a char
+ * @param height
+ * @param char
+ * @returns {string}
+ */
+function drawTree({height, char}) {
+    let tree = '';
+    let charCount = 1;
 
-const STAR_TREE = `
-    *
-   ***
-  *****
- *******
-*********
-   | |
-`;
-
-const HIGH_TREE = `
-        #
-       ###
-      #####
-     #######
-    #########
-   ###########
-  #############
-       | |
-`;
-
-const DOLLAR_TREE = `
-        $
-       $$$
-      $$$$$
-     $$$$$$$
-    $$$$$$$$$
-   $$$$$$$$$$$
-       | |
-`;
-
-
-function replaceChars (template) {
-    return template
-        .replace(/\n/g, '<br>')
-        .replace(/\s/g, '&nbsp;');
-}
-
-
-// TODO: implement generic solution
-function drawTree ({ height, char }) {
-
-    if (height == 5 && char == '*') {
-        return replaceChars(STAR_TREE);
-
-    } else if (height == 7 && char == '#') {
-        return replaceChars(HIGH_TREE);
-
-    } else if (height == 6 && char == '$') {
-        return replaceChars(DOLLAR_TREE);
+    for (let row = 0; row < height; row++) {
+        tree += renderTreeData(char.repeat(charCount));
+        charCount += 2;
     }
 
+    tree += '<div class="trunk">| |</div>';
+
+    return tree;
 }
 
-
-export { drawTree };
+export {drawTree};
