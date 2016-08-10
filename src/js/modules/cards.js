@@ -9,7 +9,7 @@ const TEMPLATE = (tree, data) => {
     return `
         <div class="card">
             <div>
-                <div id="tree">
+                <div class="tree">
                     ${tree}
                 </div>
 
