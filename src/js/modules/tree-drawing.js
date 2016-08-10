@@ -15,12 +15,7 @@ function drawTree({height, char}) {
 	let charCount = 1;
 
 	for (let row = 0; row < height; row++) {
-
-		for (let index = 0; index < charCount; index++) {
-			treeData += char;
-		}
-
-		tree += renderTreeData(treeData);
+		tree += renderTreeData(char.repeat(charCount));
 		charCount += 2;
 		treeData = '';
 	}
