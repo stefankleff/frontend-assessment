@@ -1,5 +1,3 @@
-'use strict';
-
 const renderTreeData = treeData => `<div class="tree-row">${treeData}</div>`;
 
 /**
