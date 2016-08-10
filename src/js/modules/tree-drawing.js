@@ -11,13 +11,11 @@ const renderTreeData = (treeData) => `<div class="tree-row">${treeData}</div>`;
 function drawTree({height, char}) {
 
 	let tree = '';
-	let treeData = '';
 	let charCount = 1;
 
 	for (let row = 0; row < height; row++) {
 		tree += renderTreeData(char.repeat(charCount));
 		charCount += 2;
-		treeData = '';
 	}
 
 	tree += '<div class="trunk">| |</div>';
