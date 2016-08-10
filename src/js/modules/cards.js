@@ -7,8 +7,8 @@ import {drawTree} from './tree-drawing';
  * @returns {string}
  * @constructor
  */
-const TEMPLATE = (tree, data) => {
-	return `
+const template = (tree, data) => {
+    return `
         <div class="card">
             <div>
                 <div class="tree">
@@ -35,9 +35,9 @@ const TEMPLATE = (tree, data) => {
  * @returns {string}
  */
 function renderCard(treeData) {
-	const tree = drawTree(treeData);
+    const tree = drawTree(treeData);
 
-	return TEMPLATE(tree, treeData);
+    return template(tree, treeData);
 }
 
 /**
@@ -46,11 +46,9 @@ function renderCard(treeData) {
  * @returns {string}
  */
 function renderCards(treeArray) {
-
-	return treeArray
+    return treeArray
 		.map(renderCard)
 		.join('');
 }
-
 
 export {renderCards};

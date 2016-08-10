@@ -1,26 +1,26 @@
 const TREE_OBJECT = {
-	starTree: {
-		height: 5,
-		char: '*',
-		description: 'This is a decent tree.'
-	},
+    starTree: {
+        height: 5,
+        char: '*',
+        description: 'This is a decent tree.'
+    },
 
-	wrongTree: {
-		height: 8,
-		description: 'This is a wrong tree.'
-	},
+    wrongTree: {
+        height: 8,
+        description: 'This is a wrong tree.'
+    },
 
-	highTree: {
-		height: 7,
-		char: '#',
-		description: 'This is the mightiest tree.'
-	},
+    highTree: {
+        height: 7,
+        char: '#',
+        description: 'This is the mightiest tree.'
+    },
 
-	dollarTree: {
-		height: 6,
-		char: '$',
-		description: 'This is the most expensive tree'
-	}
+    dollarTree: {
+        height: 6,
+        char: '$',
+        description: 'This is the most expensive tree'
+    }
 };
 
 /**
@@ -28,7 +28,7 @@ const TREE_OBJECT = {
  * @returns {{starTree: {height: number, char: string, description: string}, wrongTree: {height: number, description: string}, highTree: {height: number, char: string, description: string}, dollarTree: {height: number, char: string, description: string}}}
  */
 function getTreeObject() {
-	return TREE_OBJECT;
+    return TREE_OBJECT;
 }
 
 /**
@@ -37,14 +37,14 @@ function getTreeObject() {
  * @param b
  * @returns {number}
  */
-function sortTreesByHeightDesc(a,b) {
-	if(a.height < b.height) {
-		return 1;
-	}
-	if(a.height > b.height){
-		return -1;
-	}
-	return 0;
+function sortTreesByHeightDesc(a, b) {
+    if (a.height < b.height) {
+        return 1;
+    }
+    if (a.height > b.height) {
+        return -1;
+    }
+    return 0;
 }
 
 /**
@@ -53,22 +53,22 @@ function sortTreesByHeightDesc(a,b) {
  * @returns {Array.<*>}
  */
 function transformTreeObject(treeObject) {
+    let trees = [];
+    let currentTree = {};
 
-	let trees = [];
-	let currentTree = {};
+    for (let tree in treeObject) {
+        if ({}.hasOwnProperty.call(treeObject, tree)) {
+            currentTree = treeObject[tree];
+            currentTree.name = tree;
+            trees.push(currentTree);
+        }
+    }
 
-	for (let tree in treeObject) {
-		if (treeObject.hasOwnProperty(tree)) {
-			currentTree = treeObject[tree];
-			currentTree.name = tree;
-			trees.push(currentTree);
-		}
-	}
-
-	return trees
-		.filter((tree) => tree.hasOwnProperty('char'))
-		.sort(sortTreesByHeightDesc);
-
+    return trees
+        .filter(tree => {
+            return {}.hasOwnProperty.call(tree, 'char');
+        })
+        .sort(sortTreesByHeightDesc);
 }
 
 export {getTreeObject, transformTreeObject};

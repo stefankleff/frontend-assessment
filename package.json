@@ -50,5 +50,27 @@
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.7.0"
+  },
+  "xo": {
+    "envs": [
+      "browser",
+      "jasmine",
+      "jquery",
+      "phantomjs",
+      "commonjs"
+    ],
+    "space": 4,
+    "rules": {
+      "one-var": [
+        0,
+        "never"
+      ],
+      "quote-props": [
+        0,
+        "consistent"
+      ],
+      "no-mixed-requires": 0,
+      "space-before-function-paren": 0
+    }
   }
 }
