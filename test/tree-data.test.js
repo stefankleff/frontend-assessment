@@ -7,12 +7,16 @@ test('Transform a Tree Object', (assert) => {
 
 	const actual = transformTreeObject(tree);
 
-	assert.deepEqual(actual, treeArray);
+	assert.deepEqual(actual, treeArray,
+		'transFormTreeObject should take a tree object, and return an array');
 	assert.end();
 });
 
 
 test('Get Tree Object', (assert) => {
-	assert.ok(typeof getTreeObject() === 'object');
+	const actual = typeof getTreeObject();
+	const expected = 'object';
+	assert.equal(actual, expected,
+		'getTreeObject should return an object');
 	assert.end();
 });
