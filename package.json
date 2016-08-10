@@ -54,10 +54,7 @@
   "xo": {
     "envs": [
       "browser",
-      "jasmine",
-      "jquery",
-      "phantomjs",
-      "commonjs"
+      "jquery"
     ],
     "space": 4,
     "rules": {
