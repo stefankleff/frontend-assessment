@@ -1,6 +1,6 @@
 const gulp = require('gulp');
 const xo = require('gulp-xo');
-var shell = require('gulp-shell');
+const shell = require('gulp-shell');
 
 gulp.task('test:dev', shell.task([
     'babel-node test/tests.js | faucet',

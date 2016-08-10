@@ -30,9 +30,6 @@ gulp.task('scripts:dev', () => {
 	return bundle_js(bundler)
 });
 
-
-
-
 function bundle_js(bundler) {
 	return bundler.bundle()
 		.on('error', notify.onError('Error: <%= error.message %>'))
@@ -41,5 +38,4 @@ function bundle_js(bundler) {
 		.pipe(buffer())
 		.pipe(sourcemaps.init({loadMaps: true}))
 		.pipe(gulp.dest('./public/js'));
-	// .pipe(notify('Task "scripts" completed'));
 }
